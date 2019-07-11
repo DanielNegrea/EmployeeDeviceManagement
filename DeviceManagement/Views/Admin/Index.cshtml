@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Device>
+@{
+    ViewBag.Title = "All Devices";
+    Layout = "_AdminLayout";
+}
+<table class="table table-striped table-bordered table-sm">
+    <tr>
+        <th class="text-right">ID</th>
+        <th>Name</th>
+        <th class="text-right">Manufacturer</th>
+        <th class="text-center">Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="text-right">@item.ID</td>
+            <td>@item.Name</td>
+            <td class="text-right">@item.Manufacturer</td>
+            <td class="text-center">
+                <form asp-action="Delete" method="post">
+                    <a asp-action="Edit" class="btn btn-sm btn-warning"
+                       asp-route-deviceId="@item.ID">
+                        Edit
+                    </a>
+                    <input type="hidden" name="DeviceID" value="@item.ID" />
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div class="text-center">
+    <a class="text-left btn btn-primary" asp-controller="Device" asp-action="List">Back to Home</a>
+    <a class="text-left btn btn-primary" asp-controller="Order" asp-action="List">Open Requests</a>
+    <a asp-action="Create" class="btn btn-primary">Add Device</a>
+</div>

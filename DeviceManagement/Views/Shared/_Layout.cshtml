@@ -1,0 +1,30 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet"
+          asp-href-include="~/lib/bootstrap/**/*.min.css"
+          asp-href-exclude="**/*-reboot*,**/*-grid*" />
+    <title>DeviceManagement</title>
+        <style>
+        .input-validation-error {border-color: red; background-color: #fee ;}
+        </style>
+</head>
+<body class="m-1 p-1">
+    <div class="navbar navbar-dark bg-info p-2" role="navigation">
+        <a class="navbar-brand" href="#">Employee Device Management</a>
+        <!--<a class="navbar-brand" asp-controller="Account" asp-action="Register">Register</a>-->
+        <a class="navbar-brand" asp-controller="Account" asp-action="Login">Administrator Login</a>
+    </div>
+                <div class="row m-1 p-1">
+                    <div id="types" class="col-3">
+                        @await Component.InvokeAsync("NavigationMenu")
+                    </div>
+                    <div class="col-9">
+                        @RenderBody()
+                    </div>
+                </div>
+</body>
+</html>

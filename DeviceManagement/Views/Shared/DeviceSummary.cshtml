@@ -1,0 +1,27 @@
+﻿@model Device
+
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model.Name
+            <span class="badge badge-pill badge-primary" style="float:right">
+                <small>@Model.Manufacturer</small>
+            </span>
+        </h4>
+    </div>
+    <form id="@Model.ID" asp-action="AddToCart"
+          asp-controller="Cart" method="post">
+        <input type="hidden" asp-for="ID" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text p-1">
+            <i>Processor: @Model.Processor</i>
+            <br>
+            <i> &nbsp;RAM: @Model.RamAmount</i>
+            <button type="submit"
+                    class="btn btn-success btn-sm pull-right" style="float:right">
+                Mare Request
+            </button>
+        </span>
+    </form>
+</div>

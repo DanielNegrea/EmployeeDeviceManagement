@@ -1,0 +1,20 @@
+﻿@model IEnumerable<string>
+
+<a class="btn btn-block btn-secondary"
+   asp-action="List"
+   asp-controller="Device"
+   asp-route-type="">
+    Home
+</a>
+
+@foreach (string type in Model)
+{
+    <a class="btn btn-block
+       @(type == ViewBag.SelectedType ? "btn-primary": "btn-secondary")"
+       asp-action="List"
+       asp-controller="Device"
+       asp-route-type="@type"
+       asp-route-devicePage="1">
+        @type
+    </a>
+}

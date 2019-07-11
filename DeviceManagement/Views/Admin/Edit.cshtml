@@ -1,0 +1,47 @@
+﻿@model Device
+@{
+    ViewBag.Title = "Edit Device";
+    Layout = "_AdminLayout";
+}
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ID" />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <div><span asp-validation-for="Name" class="text-danger"></span></div>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Manufacturer"></label>
+        <div><span asp-validation-for="Manufacturer" class="text-danger"></span></div>
+        <textarea asp-for="Manufacturer" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="OperatingSystem"></label>
+        <div><span asp-validation-for="OperatingSystem" class="text-danger"></span></div>
+        <input asp-for="OperatingSystem" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OsVersion"></label>
+        <div><span asp-validation-for="OsVersion" class="text-danger"></span></div>
+        <input asp-for="OsVersion" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Processor"></label>
+        <div><span asp-validation-for="Processor" class="text-danger"></span></div>
+        <input asp-for="Processor" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="RamAmount"></label>
+        <div><span asp-validation-for="RamAmount" class="text-danger"></span></div>
+        <input asp-for="RamAmount" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Type"></label>
+        <div><span asp-validation-for="Type" class="text-danger"></span></div>
+        <input asp-for="Type" class="form-control" />
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
